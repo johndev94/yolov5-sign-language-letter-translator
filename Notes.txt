@@ -1,0 +1,40 @@
+Git clone yolov5
+Open anaconda prompt 
+conda create --name yolov5 python=3.8 
+y
+pip install -r requirements.txt
+
+
+**Train new model** USE THIS IN MORNING
+python train.py --img 384 --batch 16 --epochs 120 --data "C:\Users\John\Desktop\Coding Projects\Python\New Yolov5 test\yolov5\data\Small dataset with labels\data.yaml" --cfg yolov5s.yaml --weights yolov5s.pt --name letter_hand_gestures_test
+
+python train.py --img 384 --batch 64 --epochs 120 --data "/content/drive/My\ Drive/yolov5\data\Small dataset with labels\data.yaml" --cfg yolov5m.yaml --weights "/content/drive/My\ Drive/yolov5/runs/train/letter_hand_gestures_sixth3/weights/last.pt"
+
+conda activate yolov5
+
+python detect.py --source 0 (runs with default values, 0 indicates the webcam that is used)
+
+python detect.py --weights yolov5x.pt --source 0 (runs with different weights, is more accurate but slower)
+
+python detect.py --weights yolov5x.pt --source "C:\Users\John\Downloads\traffic.mp4" --view-img (detects objects from a video recording, --view-img allows us to see it unfold)
+
+python detect.py --weights yolov5x.pt --source "C:\Users\John\Desktop\Files\old\Pictures\Camera Roll" --view-img --conf-thres 0.9 (changes the confidence level to detect only objects it is certain of)
+
+python detect.py --weights yolov5x.pt --source 0 --view-img --conf-thres 0.5 --iou-thres 0.1 (iou-thres when low doesnt allow for overlapping of objects
+
+**MY MODEL**
+python detect.py --weights "C:\Users\John\Desktop\Coding Projects\Python\New Yolov5 test\yolov5\runs\train\letter_hand_gestures_sixth3\weights\best.pt" --conf-thres 0.5 --source 0  (my model)
+
+
+if letter J = 
+
+
+
+
+
+
+
+
+
+
+

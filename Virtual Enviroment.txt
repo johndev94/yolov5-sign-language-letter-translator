@@ -1,0 +1,27 @@
+# Create a virtual environment depending on python version installed
+python -m venv yolov8-3.12.1-env
+
+
+# Activate the virtual environment
+# On Windows
+yolov8-3.12.1-env\Scripts\activate
+
+# To deactivate 
+deactivate
+
+# Will show all virtual enviroments
+dir /s /b C:\ | findstr "Scripts\activate"
+
+# Run detect 
+yolo task=detect mode=predict model=yolov8n.pt source=0 show=true (default model)
+
+yolo task=detect mode=predict model="C:\Users\John\Desktop\Coding Projects\Python\yolov8-0.0.2\test1\run1\weights\best.pt" source=0 show=true 
+
+# Build a new model from YAML and start training from scratch
+yolo detect train data="C:\Users\John\Desktop\Coding Projects\Python\yolov8-0.0.2\data\Small dataset with labels\data.yaml" model=yolov8n.yaml epochs=10 imgsz=640 save=True cache=True device=0 project="test1" name="run1"
+
+# Start training from a pretrained *.pt model
+yolo detect train data=coco128.yaml model=yolov8n.pt epochs=100 imgsz=640
+
+# Build a new model from YAML, transfer pretrained weights to it and start training
+yolo detect train data=coco128.yaml model=yolov8n.yaml pretrained=yolov8n.pt epochs=100 imgsz=640
